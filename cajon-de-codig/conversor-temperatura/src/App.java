@@ -1,4 +1,3 @@
-import java.io.Reader;
 import java.util.*;
 
 public class App {
@@ -38,6 +37,6 @@ public class App {
             result = ConversorTemperatura.celsiusAFarnheit(temp);
             System.out.println(temp + " celsusis es: " + Math.round(result) + " farenheit");
         }
-
+        sc.close();
     }
 }
