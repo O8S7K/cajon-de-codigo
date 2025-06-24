@@ -1,12 +1,12 @@
-# VSCode settings
-.vscode/
+# Ignorar configuración de VSCode
+**/.vscode/
 
-# Java compiled files
-*.class
+# Archivos compilados de Java
+**/*.class
 
-# Libraries
-lib/
+# Bibliotecas locales
+**/lib/
 
-# System files
+# Archivos del sistema
 .DS_Store
 Thumbs.db
