@@ -5,7 +5,7 @@ public class App {
     public static void main(String[] args) throws Exception {
         Scanner sc = new Scanner(System.in);
         String conversion;
-        double temp;
+        double temp, result;
 
         System.out.println("__Conversos de temperatura__");
 
@@ -15,7 +15,7 @@ public class App {
         System.out.print("\nTu elecion:");
         conversion = sc.nextLine();
 
-     
+        // Asegurara correcto input de usuario
         while (true) {
             if (conversion.equals("c") || conversion.equals("f")) {
                  break;
@@ -24,17 +24,19 @@ public class App {
                 conversion = sc.nextLine();
             }
         }
-
+        // Conversion de tempearatura
         if (conversion.equals("f")) {
             System.out.println("\nTu elecion es convertir de farenheit to celsius");
-            System.out.print("Escribe temperatura: ");
+            System.out.print("Escribe temperatura en farenhein: ");
             temp = sc.nextDouble();
-            ConversorTemperatura.farentheitACelsius(temp);
+            result = ConversorTemperatura.farentheitACelsius(temp);
+            System.out.println(temp + " farenthein es: " + Math.round(result * 10.0) / 10.0 + " celsius");
         } else {
             System.out.println("\nTu elecion es convertir de celsius to farenheit");
-            System.out.print("Escribe temperatura: ");
+            System.out.print("Escribe temperatura en celsius: ");
             temp = sc.nextDouble();
-            ConversorTemperatura.celsiusAFarnheit(temp);
+            result = ConversorTemperatura.celsiusAFarnheit(temp);
+            System.out.println(temp + " celsusis es: " + Math.round(result) + " farenheit");
         }
 
     }
