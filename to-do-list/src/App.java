@@ -18,7 +18,6 @@ public class App {
           System.out.println(t.getContent());
           System.out.println(t.getId());
         }
-
-
+        sc.close();
     }
 }
