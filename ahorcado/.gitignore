@@ -1,0 +1,29 @@
+# Archivos de compilación
+*.class
+
+# Salidas de compilación
+/bin/
+/out/
+/target/
+
+# Archivos de log
+*.log
+
+# Configuración del IDE
+.vscode/
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Archivos generados
+*.jar
+*.war
+*.ear
+
+# Carpeta lib (puedes borrarla si está vacía, pero por si acaso)
+lib/
