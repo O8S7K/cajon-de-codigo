@@ -44,7 +44,7 @@ public class App {
 
             System.out.println("\n" + letrasAcertadas);
 
-            if (intentos <= 0) {
+            if (intentos <= 0 && letrasAcertadas.contains("_")) {
                 System.out.println("\n*_* *_* *_* *_*");
                 System.out.println("_Has muerto_");
                 break;

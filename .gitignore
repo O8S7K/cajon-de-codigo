@@ -4,6 +4,9 @@
 # Archivos compilados de Java
 **/*.class
 
+**/.idea/
+*.iml
+
 # Bibliotecas locales
 **/lib/
 
