@@ -1,0 +1,1 @@
+print("__Generador de contrasenas__")
