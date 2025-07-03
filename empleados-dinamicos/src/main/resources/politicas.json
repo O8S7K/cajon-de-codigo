@@ -1,0 +1,6 @@
+{
+  "IT":       { "bono": 0.3 },
+  "HR":       { "bono": 0.1 },
+  "LIMPIEZA": { "bono": 0.05 },
+  "VENTAS":   { "bono": 0.2 }
+}
