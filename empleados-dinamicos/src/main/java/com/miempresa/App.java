@@ -9,6 +9,7 @@ import java.util.Map;
 public class App {
     public static void main(String[] args) {
         try {
+            // Llamamos al método que ya analizamos antes para cargar el JSON.
             Map<String, PoliticaDeSalario> politicas = PoliticasLoader.cargarDesdeJson("politicas.json");
 
             // Crear empleados con nombre, tipo y salario base
@@ -28,8 +29,11 @@ public class App {
 
      /**
      * Muestra por consola el salario final del empleado, usando la política correspondiente.
+     * Toma el mapa de politicas y busca politicas adecuadas.
+     * Busca politicas adecuadas segun categori de trabajo y lo calcula.
      */
     private static void mostrarSalario(Empleado emp, Map<String, PoliticaDeSalario> politicas) {
+        //Buscamos en el mapa la política para ese tipo ("IT", "HR", etc.)
         PoliticaDeSalario politica = politicas.get(emp.getCategoria());
 
         if (politica == null) {
@@ -37,6 +41,7 @@ public class App {
             return;
         }
 
+        //Usamos la política correspondiente para calcular el salario final de ese empleado.
         double salarioFinal = politica.calcular(emp);
         System.out.println(emp.getNombre() + " (" + emp.getCategoria() + ") → Salario final: " + salarioFinal);
     }
