@@ -8,6 +8,8 @@ public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        Empleado e = new Empleado("Oskar", "IT", 1500);
+
+        System.out.println(e.getNombre());
     }
 }
