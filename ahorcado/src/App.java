@@ -22,14 +22,16 @@ public class App {
 
     }
 
-    public static int indexLetraOculta(String palabraOculta, String letraOculta) {
-        int index = 0;
+
+    public static List<Integer> indexLetraOculta(String palabraOculta, String letraOculta) {
+        List<Integer> indexList = new ArrayList<>();
+        char letra = letraOculta.charAt(0);
         for (int i = 0; palabraOculta.length() > i; i++) {
-            if (palabraOculta.charAt(i) == letraOculta.charAt(0)) {
-                index = i;
+            if (palabraOculta.charAt(i) == letra) {
+                indexList.add(i);
             }
         }
-        return index;
+        return indexList;
     }
 
     public static boolean validarLetra(String palabraOculta, String letraOculta) {
