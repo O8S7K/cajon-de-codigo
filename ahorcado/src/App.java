@@ -9,13 +9,41 @@ public class App {
         System.out.println("Ahorcado *_*");
 
         String palabraOculta = userInput(sc);
-        
-        String [] progreso = new String[palabraOculta.length()];
+        String letraOculta = inputLetter(sc);
 
+        String[] progreso = new String[palabraOculta.length()];
         initSlots(progreso);
 
-        System.out.println(Arrays.toString(progreso));
+        System.out.println(validarLetra(palabraOculta, letraOculta));
 
+        
+
+        System.out.println(indexLetraOculta(palabraOculta, letraOculta));
+
+    }
+
+    public static int indexLetraOculta(String palabraOculta, String letraOculta) {
+        int index = 0;
+        for (int i = 0; palabraOculta.length() > i; i++) {
+            if (palabraOculta.charAt(i) == letraOculta.charAt(0)) {
+                index = i;
+            }
+        }
+        return index;
+    }
+
+    public static boolean validarLetra(String palabraOculta, String letraOculta) {
+        if (palabraOculta.contains(letraOculta)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static void showInfo(String[] progreso) {
+        System.out.println("\n_______");
+        System.out.println(Arrays.toString(progreso));
+        System.out.println("\n_______");
     }
 
     public static String inputLetter(Scanner sc) {
@@ -29,7 +57,7 @@ public class App {
         return txt;
     }
 
-    public static void initSlots(String [] st) {
+    public static void initSlots(String[] st) {
         for (int i = 0; st.length > i; i++) {
             st[i] = "_";
         }
