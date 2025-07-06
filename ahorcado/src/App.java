@@ -8,20 +8,43 @@ public class App {
 
         System.out.println("Ahorcado *_*");
 
-        String palabraOculta = userInput(sc);
-        String letraOculta = inputLetter(sc);
+        String palabraOculta = userInput(sc).toLowerCase();
+        String letraOculta = "";
+        int vidas = 5;
 
         String[] progreso = new String[palabraOculta.length()];
         initSlots(progreso);
 
-        System.out.println(validarLetra(palabraOculta, letraOculta));
-
-        
-
-        System.out.println(indexLetraOculta(palabraOculta, letraOculta));
-
+        while (Arrays.toString(progreso).contains("_") && perdido(vidas)) {
+            letraOculta = inputLetter(sc);
+            List<Integer> index = indexLetraOculta(palabraOculta, letraOculta);
+            if (validarLetra(palabraOculta, letraOculta)) {
+                progreso(progreso, index, letraOculta, palabraOculta);
+            } else {
+                vidas -= 1;
+            }
+            showInfo(progreso, vidas, palabraOculta, letraOculta);
+        }
     }
 
+    public static void showInfo(String[] progreso, int lifes, String palabraOculta, String letraOculta) {
+        System.out.println("_______");
+        System.out.println("\nPalabra oculta: ");
+        System.out.println(Arrays.toString(progreso));
+        System.out.println(validarLetra(palabraOculta, letraOculta) ? "" : "\nLetra invalida, prueba otra vez");
+        System.out.println("Te quedan " + lifes + " vidas");
+        System.out.println("_______");
+    }
+
+    public static boolean perdido(int vidas) {
+
+        if (vidas != 0) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
 
     public static List<Integer> indexLetraOculta(String palabraOculta, String letraOculta) {
         List<Integer> indexList = new ArrayList<>();
@@ -42,13 +65,8 @@ public class App {
         }
     }
 
-    public static void showInfo(String[] progreso) {
-        System.out.println("\n_______");
-        System.out.println(Arrays.toString(progreso));
-        System.out.println("\n_______");
-    }
-
     public static String inputLetter(Scanner sc) {
+        System.out.println("\nIntorduce una letra");
         String s = sc.nextLine();
         return s;
     }
@@ -65,4 +83,9 @@ public class App {
         }
     }
 
+    public static void progreso(String[] progreso, List<Integer> indexList, String letraOculta, String palabraOculta) {
+        for (int i = 0; indexLetraOculta(palabraOculta, letraOculta).size() > i; i++) {
+            progreso[indexList.get(i)] = letraOculta;
+        }
+    }
 }
